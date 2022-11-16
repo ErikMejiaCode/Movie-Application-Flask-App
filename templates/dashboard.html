@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    </head>
+
+<body>
+    <header class='d-flex mt-1 justify-content-around align-items-center'>
+        <h1 class="text-center">Flixs & Chill</h1>
+        <a href="/register" class="btn btn-outline-success my-2 my-sm-0" type="submit">Register</a>
+    </header>
+
+    <main id="main">
+        <div class="movie">
+            <img src="{{ url_for('static', filename='img/unsplash.jpg') }}">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.9</span>
+            </div>
+            <div class="overview">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas magni repellat quaerat 
+                saepe perferendis beatae reiciendis? Delectus fuga assumenda officiis?
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="{{ url_for('static', filename='img/unsplash.jpg') }}">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.9</span>
+            </div>
+            <div class="overview">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas magni repellat quaerat 
+                saepe perferendis beatae reiciendis? Delectus fuga assumenda officiis?
+            </div>
+        </div>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
