@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body id="body">
+    <header class='d-flex mt-1 justify-content-around align-items-center'>
+        <h1 class="text-center">MovieHub</h1>
+        <a href="/dashboard" class="btn btn-outline-success my-2 my-sm-0" type="submit">Dashboard</a>
+    </header>
+
+
+    <div id="movie_1">
+        <div class="left">
+            <div class="left_side">
+                <img src="{{'https://image.tmdb.org/t/p/w500' + movieInfo.poster_path}}" alt="{{movieInfo.title}}">
+                <div class="movie-info">
+                    <h2>{{movieInfo.title}}</h2>
+                    <span>{{movieInfo.vote_average}}</span>
+                </div>
+            </div>
+            <div id="video-container">
+            </div>
+        </div>
+        <div class="right">
+            <div class="overview">
+                <h5> <strong>Description:</strong> {{movieInfo.overview}}</h5>
+            </div>
+            <h5> <strong>Release Date:</strong> {{movieInfo.release_date}}</h5>
+            <h5> <strong>Runtime:</strong> {{movieInfo.runtime}} minutes</h5>
+            <h5> <strong>Status:</strong> {{movieInfo.status}}</h5>
+            <h5> <strong>Revenue:</strong> ${{movieInfo.revenue}}</h5>
+            <h5> <strong>Popularity:</strong> {{movieInfo.popularity}}</h5>
+            <h5> <strong>Vote Count:</strong> {{movieInfo.vote_count}}</h5>
+
+            <!-- Jinja logic used to catch errors for fils with only 1 or 2 genres. -->
+            {% if movieInfo.genres[1] == null %}
+            <h5> <strong>Genres:</strong> {{movieInfo.genres[0].name}}</h5>
+            {% elif movieInfo.genres[2] == null %}
+            <h5> <strong>Genres:</strong> {{movieInfo.genres[0].name}}, {{movieInfo.genres[1].name}}</h5>
+            {% else %}
+            <h5> <strong>Genres:</strong> {{movieInfo.genres[0].name}}, {{movieInfo.genres[1].name}},
+                {{movieInfo.genres[2].name}}</h5>
+            {% endif %}
+
+            <!-- Jinja logic used to capture movies with no website -->
+            {% if movieInfo.homepage[0] != null %}
+            <h5> <strong>Homepage:</strong> <a href="{{movieInfo.homepage}}" target="_blank">{{movieInfo.homepage}}</a>
+            </h5>
+            {% else %}
+            <h5> <strong>Homepage:</strong> <small>No site available</small> </h5>
+            {% endif %}
+
+        </div>
+        <h2 class="cast_characters">{{movieInfo.title}} Cast and Characters</h2>
+
+        <div id="cast_information">
+            <div class="actor_card">
+                <img src="#" alt="Actor Name">
+                <div class="actor_name">
+                    <h5><strong>Character Name</strong></h5>
+                    <p>Actor Name</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews_title">
+        <h2>Reviews</h2>
+    </div>
+    <div id="review_text">
+        <div class="review">
+            <div class="user">
+                <p>Username:</p>
+                <p>Rating:</p>
+                <p>Date:</p>
+            </div>
+            <div class="user_review">
+                <div class="review_text">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis velit iusto autem debitis
+                    dolor numquam voluptatum, totam recusandae cupiditate, nesciunt beatae sint fugit quis quos ipsam
+                    tenetur est voluptatem atque. Expedita, tempore voluptate dolor nobis quaerat ullam eos rerum autem
+                    ad adipisci suscipit nostrum id laudantium iste voluptatum itaque distinctio hic unde dolorem vero
+                    saepe. Minus, accusamus sapiente tenetur adipisci quod exercitationem repudiandae expedita
+                    praesentium
+                    modi cumque reprehenderit tempore fuga laudantium, architecto velit hic molestiae voluptatem vel non
+                    necessitatibus deleniti. Autem reiciendis nisi, laudantium aut placeat deleniti corporis iusto, quae
+                    nesciunt ducimus a laboriosam cum asperiores eum ea nostrum nemo.
+                </div>
+            </div>
+            <div class="review_url">
+                <p>Review Source: <a href="" target="_blank"></a> </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

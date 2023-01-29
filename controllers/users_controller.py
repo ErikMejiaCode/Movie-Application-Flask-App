@@ -1,6 +1,6 @@
 from flask_app import app
 from flask import render_template, redirect, session, flash, request
-from flask_app.models.user_model import User
+from flask_app.models.users_model import User
 from flask_bcrypt import Bcrypt
 # from flask_app.models.sighting_model import Sighting
 bcrypt = Bcrypt(app)
@@ -24,9 +24,6 @@ def dashboard():
     logged_user = User.get_by_id(user_data)
     return render_template('dashboard.html', logged_user=logged_user)
 
-@app.route('/movie_details')
-def movie_details():
-    return render_template('details.html')
 
 @app.route('/users/register', methods=['POST'])
 def reg_user():
@@ -41,7 +38,7 @@ def reg_user():
     session['user_id'] = new_id
     return redirect('/dashboard')
 
-
+# route used to log user in
 @app.route('/users/login', methods=['POST'])
 def log_user():
     data = {
@@ -57,6 +54,7 @@ def log_user():
     session['user_id'] = user_in_db.id
     return redirect("/dashboard")
 
+# route used to logout
 @app.route("/users/logout")
 def log_out_user():
     del session['user_id']

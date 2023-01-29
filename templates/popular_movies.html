@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Now Playing</title>
+    <title>Latest</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
@@ -18,12 +18,12 @@
         <a href="/register" class="btn btn-outline-success my-2 my-sm-0" type="submit">Register</a>
     </header>
 
-        <div class="movie_tabs d-flex mt-1 justify-content-center align-items-center">
-            <h3 class="text-center text-white"> <a href="/dashboard" class="disabled">Now Playing </a> </h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <h3 class="text-center text-white"> <a href="/toprated">Top Rated</a> </h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <h3 class="text-center text-white"> <a href="/popular">Popular</a> </h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <h3 class="text-center text-white"> <a href="/comingsoon">Coming Soon</a> </h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </div>
+    <div class="movie_tabs d-flex mt-1 justify-content-center align-items-center">
+        <h3 class="text-center text-white"> <a href="/dashboard">Now Playing </a> </h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <h3 class="text-center text-white"> <a href="/toprated">Top Rated</a> </h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <h3 class="text-center text-white"> <a href="/popular" class="disabled">Popular</a> </h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <h3 class="text-center text-white"> <a href="/comingsoon">Coming Soon</a> </h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
 
     <main id="main">
         <div class="movie">
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/popular.js') }}"></script>
     </main>
 
 </body>
