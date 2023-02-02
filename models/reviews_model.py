@@ -5,7 +5,7 @@ from flask_app.models import users_model
 
 
 class Review:
-    def __init__(self, data) -> None:
+    def __init__(self, data):
         self.id = data["id"]
         self.content = data["content"]
         self.rating = data["rating"]
@@ -16,8 +16,7 @@ class Review:
 
     @classmethod
     def create(cls, data):
-        query = "INSERT INTO reviews (content, rating, user_id, movie_id)"\
-            "VALUES (%(content)s, %(rating)s, %(user_id)s, %(movie_id)s)"
+        query = "INSERT INTO reviews (content, rating, user_id, movie_id)VALUES (%(content)s, %(rating)s, %(user_id)s, %(movie_id)s)"
         return connectToMySQL(DATABASE).query_db(query, data)
 
     @classmethod
@@ -33,8 +32,9 @@ class Review:
 
     @classmethod
     def get_all(cls, data):
-        query = "SELECT * FROM reviews JOIN users ON reviews.user_id = users.id WHERE reviews.movie_id = %(movie_id)s;"
+        query = "SELECT * FROM reviews WHERE movie_id = (SELECT id FROM movies WHERE external_movie_id = [76600])"
         results = connectToMySQL(DATABASE).query_db(query, data)
+        print(results)
         if len(results) > 0:
             all_reviews = []
             for row in results:
@@ -44,7 +44,6 @@ class Review:
                     'id': row['users.id'],
                     'created_at': row['users.created_at'],
                     'updated_at': row['users.updated_at']
-
                 }
                 this_user = users_model.User(user_data)
                 this_review.planner = this_user

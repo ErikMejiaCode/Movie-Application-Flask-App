@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="display_reviews">
+
+    <header class="d-flex mt-1 justify-content-around align-items-center">
+        <h1 class="text-center">MovieHub</h1>
+        <a href="/dashboard" class="btn btn-outline-success my-2 my-sm-0" type="submit">Dashboard</a>
+    </header>
+
+    <div class="container">
+        <h3>Coming Soon..</h3>
+        <img
+            src="https://static.vecteezy.com/system/resources/previews/000/192/096/original/vector-website-under-construction.png" alt="Page Under Construction">
+    </div>
+
+    {% for review in all_reviews %}
+    <div>
+        <p>Username: {{ review.username }}</p>
+        <p>Content: {{ review.content }}</p>
+        <p>Rating: {{ review.rating }}</p>
+    </div>
+    {% endfor %}
+
+    {% for review in all_reviews %}
+    <div>
+        <p>Username: {{ review.username }}</p>
+        <p>Content: {{ review.content }}</p>
+        <p>Rating: {{ review.rating }}</p>
+    </div>
+    {% endfor %}
+
+    {% for review in all_reviews %}
+    <div>
+        <p>Username: {{ review.username }}</p>
+        <p>Content: {{ review.content }}</p>
+        <p>Rating: {{ review.rating }}</p>
+    </div>
+    {% endfor %}
+
+
+</body>
+
+</html>

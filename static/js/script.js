@@ -36,7 +36,9 @@ function showMovies(data) {
         const movieEL = document.createElement('div')
         movieEL.classList.add('movie');
         movieEL.innerHTML = `
-            <a id="image_click" href="/movies/${id}"><img src="${IMG_URL + poster_path}" alt='${title}'></a>
+            <form action="/movies/${id}" method="post" class="form">
+                <button class="btn btn-sm btn-info"><a id="image_click" href="/movies/${id}"><img src="${IMG_URL + poster_path}" alt='${title}'></a></button>
+            </form>
             <div class="movie-info">
                 <h3>${title}</h3>
                 <span class="${getColor(vote_average)}">${vote_average}</span>
@@ -138,7 +140,7 @@ fetch(Videos_URL).then((response) => {
     return response.json();
 }).then((data) => {
     let trailers = data.results.filter(video => video.type === "Trailer");
-    if (trailers.length){
+    if (trailers.length) {
         let videoId = trailers[0].key;
         let iframe = `<iframe width='100%'height="91.5%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
         document.getElementById('video-container').innerHTML = iframe;
@@ -146,5 +148,8 @@ fetch(Videos_URL).then((response) => {
         console.log("No Trailer Available")
     }
 });
+
+
+
 
 

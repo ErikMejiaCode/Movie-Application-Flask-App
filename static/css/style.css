@@ -216,8 +216,19 @@ button {
         0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
+.reviews_title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .reviews_title h2 {
     color: aliceblue;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.reviews_title a {
     padding: 1rem;
     margin: 1rem;
 }
@@ -250,3 +261,49 @@ button {
     cursor: pointer;
 }
 
+
+/* User Movie Review  */
+.form {
+    display: flex;
+    justify-content: space-around;
+    align-items: top;
+}
+
+.review_movie_img {
+    padding: 1rem;
+    margin-left: 2rem;
+    flex: 1;
+}
+
+.review_content {
+    padding: 1rem;
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.review_content select{
+    width: 10%;
+}
+
+.review_content button{
+    margin-top: 1rem;
+    width: 100px;
+    height: 50px;
+    background-color: dodgerblue;
+    color: aliceblue;
+}
+
+.container { 
+    text-align: center;
+    color: aliceblue;
+}
+
+.container img {
+    width: 65%;
+}
+
+.display_reviews{
+    color: aliceblue;
+}

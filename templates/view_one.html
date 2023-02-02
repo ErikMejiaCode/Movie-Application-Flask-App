@@ -13,7 +13,7 @@
 </head>
 
 <body id="body">
-    <header class='d-flex mt-1 justify-content-around align-items-center'>
+    <header class="d-flex mt-1 justify-content-around align-items-center">
         <h1 class="text-center">MovieHub</h1>
         <a href="/dashboard" class="btn btn-outline-success my-2 my-sm-0" type="submit">Dashboard</a>
     </header>
@@ -75,7 +75,11 @@
     </div>
 
     <div class="reviews_title">
-        <h2>Reviews</h2>
+        <h2>The Movie DB Reviews</h2>
+        <div class="review_links">
+            <a href="/reviews/{{movieInfo.id}}/new" class="btn btn-primary btn-sm">Write Review</a>
+            <a href="/movies/{{movieInfo.id}}/reviews" class="btn btn-info btn-sm">View User Reviews</a>
+        </div>
     </div>
     <div id="review_text">
         <div class="review">

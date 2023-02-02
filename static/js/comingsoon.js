@@ -29,7 +29,9 @@ function showMovies(data) {
         const movieEL = document.createElement('div')
         movieEL.classList.add('movie');
         movieEL.innerHTML = `
-            <a id="image_click" href="/movies/${id}"><img src="${IMG_URL + poster_path}" alt='${title}'></a>
+            <form action="/movies/${id}" method="post" class="form">
+                <button class="btn btn-sm btn-info"><a id="image_click" href="/movies/${id}"><img src="${IMG_URL + poster_path}" alt='${title}'></a></button>
+            </form>
             <div class="movie-info">
                 <h3>${title}</h3>
                 <span class="${getColor(vote_average)}">${vote_average}</span>

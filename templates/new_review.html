@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Movie</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header class='d-flex mt-1 justify-content-around align-items-center'>
+        <h1 class="text-center">MovieHub</h1>
+        <div class="links">
+            <a href="/register" class="btn btn-outline-success my-2 my-sm-0" type="submit">Register</a>
+            <a href="/dashboard" class="btn btn-outline-success my-2 my-sm-0" type="submit">Dashboard</a>
+        </div>
+    </header>
+
+    {% for message in get_flashed_messages() %}
+    <p class="alert-danger">{{message}}</p>
+    {% endfor %}
+
+    {{results}}
+
+    <form action="/reviews/{{movieInfo.id}}/create" method="post" class="form">
+        <div class="review_movie_img">
+            <img src="https://image.tmdb.org/t/p/w500{{movieInfo.poster_path}}" alt="{{movieInfo.title}}">
+        </div>
+        <div class="review_content">
+            <h2>{{movieInfo.title}} Review</h2>
+            <label for="rating">Rating</label>
+            <select name="rating" id="rating" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <label for="content">Content</label>
+            <textarea class="form-control" name="content" id="content" rows="10"></textarea>
+            <button class="btn btn-sm btn-info">Submit</button>
+        </div>
+    </form>
+
+</body>
+
+</html>
