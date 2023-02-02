@@ -29,17 +29,29 @@ def view_one(id):
 
 @app.route('/toprated')
 def toprated():
-    return render_template('top_rated.html')
+    user_data = {
+        'id' : session['user_id']
+    }
+    logged_user = User.get_by_id(user_data)
+    return render_template('top_rated.html', logged_user=logged_user)
 
 
 @app.route('/popular')
 def popular():
-    return render_template('popular_movies.html')
+    user_data = {
+        'id' : session['user_id']
+    }
+    logged_user = User.get_by_id(user_data)
+    return render_template('popular_movies.html', logged_user=logged_user)
 
 
 @app.route('/comingsoon')
 def comingsoon():
-    return render_template('coming_soon.html')
+    user_data = {
+        'id' : session['user_id']
+    }
+    logged_user = User.get_by_id(user_data)
+    return render_template('coming_soon.html', logged_user=logged_user)
 
 @app.route('/movies/<id>/reviews')
 def movie_reviews(id):
